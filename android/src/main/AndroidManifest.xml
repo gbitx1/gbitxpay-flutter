@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- The plugin adds no permissions or components of its own; the INTERNET
+         permission it needs comes transitively from the pay-android SDK. -->
+</manifest>

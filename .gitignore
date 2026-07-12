@@ -1,0 +1,24 @@
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+.DS_Store
+
+# Generated example platform folders (run `flutter create .` in example/)
+example/android/
+example/ios/
+example/linux/
+example/macos/
+example/windows/
+example/web/
+example/.dart_tool/
+example/build/
+.gradle/
+local.properties
+example/.metadata
+example/.gitignore
+example/analysis_options.yaml
+example/test/
+example/*.iml

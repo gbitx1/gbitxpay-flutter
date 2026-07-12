@@ -1,0 +1,21 @@
+name: gbitx_pay_flutter_example
+description: Example app for the GbitXPay Flutter plugin.
+publish_to: none
+version: 0.1.0
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  gbitx_pay_flutter:
+    path: ../
+  http: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

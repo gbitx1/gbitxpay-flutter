@@ -1,0 +1,30 @@
+name: gbitx_pay_flutter
+description: >-
+  Accept crypto payments in your Flutter app with GbitXPay. Opens the hardened
+  hosted checkout via the native iOS/Android SDKs and returns one typed result.
+version: 0.1.0
+homepage: https://doc.gbitx.com
+repository: https://github.com/gbitx1/gbitxpay-flutter
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.1.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.gbitx.pay.flutter
+        pluginClass: GbitXPayFlutterPlugin
+      ios:
+        pluginClass: GbitXPayFlutterPlugin

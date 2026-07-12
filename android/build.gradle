@@ -1,0 +1,56 @@
+group 'com.gbitx.pay.flutter'
+version '0.1.0'
+
+buildscript {
+    ext.kotlin_version = '2.0.21'
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.5.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        // com.gbitx:pay-android:0.1.0 is published + signed on Maven Central, so
+        // the plugin pins the canonical audited coordinate with no dev fallback.
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    namespace 'com.gbitx.pay.flutter'
+    compileSdk 35
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    defaultConfig {
+        minSdk 23
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    // The audited native Android SDK. Resolves from Maven Central once published;
+    // dev builds resolve via mavenLocal()/JitPack (see repositories above).
+    implementation 'com.gbitx:pay-android:0.1.0'
+    implementation 'androidx.fragment:fragment-ktx:1.8.5'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1'
+}
