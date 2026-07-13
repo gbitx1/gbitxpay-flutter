@@ -19,7 +19,7 @@ dependencies:
   gbitx_pay_flutter: ^0.1.0
 ```
 
-> **Pre‑publish:** neither this plugin nor the native SDKs it wraps are on their registries yet (pub.dev / Maven Central / CocoaPods trunk). Until then, add the plugin by `path:` / `git:` in your `pubspec.yaml`, and resolve the native SDKs as below.
+Then `flutter pub get`. The native SDKs resolve automatically — Android pulls `com.gbitx:pay-android` from Maven Central, iOS pulls the `GbitXPay` pod from CocoaPods trunk on `pod install`. No extra registry setup is needed.
 
 ### Android — required
 
@@ -34,15 +34,9 @@ class MainActivity : FlutterFragmentActivity()
 
 Otherwise `present()` throws `host_not_fragment_activity`. minSdk 23.
 
-The Android side is the native `com.gbitx:pay-android` SDK, which is not on Maven Central yet. For local development, publish it to your Maven local cache (`./gradlew :pay-android:publishToMavenLocal`) — the plugin already declares `mavenLocal()` (and JitPack) for dev resolution. Those dev‑only repositories get removed once the coordinate is published.
-
 ### iOS
 
-iOS 15+. The plugin depends on the `GbitXPay` CocoaPod. Until it is published to CocoaPods trunk, add the native SDK to your app's `ios/Podfile` for local development:
-
-```ruby
-pod 'GbitXPay', :path => '../path/to/sdk/ios'   # or :git => 'https://github.com/gbitx1/gbitxpay-ios.git'
-```
+iOS 15+. No Podfile changes needed — the `GbitXPay` pod is resolved from CocoaPods trunk automatically.
 
 ## Usage
 
