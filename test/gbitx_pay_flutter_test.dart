@@ -91,7 +91,7 @@ void main() {
     });
 
     test('toString never leaks a token', () {
-      const e = GbitxPayException('network_error', 'boom https://pay.gbitx.com/p/x#t=SECRET');
+      const e = GbitxPayException('network_error', 'boom https://www.gbitxpay.com/p/x#t=SECRET');
       expect(e.toString().contains('SECRET'), isFalse);
     });
   });

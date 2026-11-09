@@ -10,13 +10,13 @@ This plugin is a thin **native‑wrapping** bridge: it forwards to the hardened 
 
 Your **server** creates the payment with your **secret** key (`gk_`) and hands the app only `{ paymentId, clientToken }`. The app opens the checkout with a **publishable** key (`pk_`). The signed `PAYMENT_CONFIRMED` webhook is the source of truth.
 
-Two hosts are involved: the SDK validates your publishable key against the API host `gateway.gbitx.com`, which returns the separate, pinned checkout origin `pay.gbitx.com` that the native WebView locks to. They are intentionally different hosts. (`doc.gbitx.com` is the docs site.)
+Two hosts are involved: the SDK validates your publishable key against the API host `api.gbitxpay.com`, which returns the separate, pinned checkout origin `www.gbitxpay.com` that the native WebView locks to. They are intentionally different hosts. (`doc.gbitxpay.com` is the docs site.)
 
 ## Install
 
 ```yaml
 dependencies:
-  gbitx_pay_flutter: ^0.1.0
+  gbitx_pay_flutter: ^0.2.0
 ```
 
 Then `flutter pub get`. The native SDKs resolve automatically — Android pulls `com.gbitx:pay-android` from Maven Central, iOS pulls the `GbitXPay` pod from CocoaPods trunk on `pod install`. No extra registry setup is needed.
@@ -73,7 +73,7 @@ Dismiss programmatically: `await GbitxPay.instance.cancel();` (the in‑flight `
 ## Your server: creating the payment
 
 ```bash
-curl https://gateway.gbitx.com/v1/payments \
+curl https://api.gbitxpay.com/v1/payments \
   -H "Authorization: Bearer $GBITX_SECRET_KEY" \
   -H "Content-Type: application/json" \
   -d '{"amount": 49.99, "currency": "USD", "description": "Order #1234"}'
